@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"github.com/kbinani/screenshot"
 	"image"
 	"image/color"
@@ -11,6 +12,12 @@ import (
 	"time"
 )
 
+var output string
+
+func init() {
+	flag.StringVar(&output, "o", "screen.gif", "outpu gif file name")
+	flag.Parse()
+}
 func main() {
 	var n = 10
 	palette := append(palette.WebSafe, color.Transparent)
@@ -28,8 +35,8 @@ func main() {
 		outGif.Image = append(outGif.Image, palettedImage)
 		outGif.Delay = append(outGif.Delay, 100)
 	}
-	fileName := "test.gif"
 
+	fileName := output
 	f, err := os.Create(fileName)
 	if err != nil {
 		panic(err)

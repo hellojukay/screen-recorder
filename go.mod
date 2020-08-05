@@ -1,4 +1,4 @@
-module github.com/hellojukay/screen-recoder
+module github.com/hellojukay/screen-recorder
 
 go 1.14
 
